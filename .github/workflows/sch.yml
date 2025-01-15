@@ -1,0 +1,23 @@
+name: Scheduled Deployment
+
+on:
+  schedule:
+    - cron: '0 12 * * *' # This cron expression represents 6:00 PM UTC
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Check branch
+      id: check_branch
+      run: echo "::set-output name=branch::$(git rev-parse --abbrev-ref HEAD)"
+
+    - name: Deploy to server
+      if: steps.check_branch.outputs.branch == 'test' # Replace with your specific branch name
+      run: |
+        echo "Deploying to server..."
+        # Add your deployment commands here
