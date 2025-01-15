@@ -2,7 +2,7 @@ name: Daily Scheduled Workflow
 
 on:
   schedule:
-    - cron: '30 12 * * *' # Triggers at 6:00 PM IST daily
+    - cron: '10 10 * * *' # Triggers at 6:00 PM IST daily
 
 jobs:
   example_job:
