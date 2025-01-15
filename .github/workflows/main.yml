@@ -1,0 +1,17 @@
+name: Scheduled Workflow
+
+on:
+  schedule:
+    - cron: '10 11 * * *' # This cron expression represents 4:40 PM IST
+
+jobs:
+  build:
+    if: github.ref == 'refs/heads/test'
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Run a script
+      run: echo "This is a scheduled run on the test branch"
