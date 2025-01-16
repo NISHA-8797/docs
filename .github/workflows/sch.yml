@@ -2,7 +2,7 @@ name: Scheduled Deployment
 
 on:
   schedule:
-    - cron: '30 12 * * *' # This cron expression represents 6:00 PM UTC
+    - cron: '20 6 * * *' # This cron expression represents 6:00 PM UTC
 
 jobs:
   deploy:
