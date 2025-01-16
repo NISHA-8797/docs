@@ -2,7 +2,7 @@ name: Scheduled Workflow
 
 on:
   schedule:
-    - cron: '10 11 * * *' # This cron expression represents 4:40 PM IST
+    - cron: '35 6 * * *' # This cron expression represents 4:40 PM IST
 
 jobs:
   build:
@@ -12,6 +12,8 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
+    with:
+     ref: 'test'
 
     - name: Run a script
       run: echo "This is a scheduled run on the test branch"
