@@ -2,13 +2,18 @@ name: Daily Scheduled Workflow
 
 on:
   schedule:
-    - cron: '10 10 * * *' # Triggers at 6:00 PM IST daily
+    - cron: '10 7 * * *' # Triggers at 6:00 PM IST daily
 
 jobs:
-  example_job:
+  build:
+    if: github.ref == 'refs/heads/test'
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      - name: Run a script
-        run: echo "This is a scheduled task"
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    with:
+     ref: 'test'
+
+    - name: Run a script
+      run: echo "This is a scheduled run on the test branch"
